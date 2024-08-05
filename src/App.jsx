@@ -6,11 +6,13 @@ import Home from './Pages/Home';
 import Footer from './components/compo/Footer';
 import Blogs from './Pages/Blogs';
 import GetSingleBlogPage from './Pages/GetSingleBlogPage';
+import ScrollToTop from './components/compo/ScrollToTop';
 
 function App() {
   return (
     <div>
       <Router>
+        <ScrollToTop />
         <Navbar />
 
         <Routes>

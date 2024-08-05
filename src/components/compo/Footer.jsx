@@ -32,7 +32,9 @@ const Footer = () => {
     <div className="p-10 sm:p-16 md:p-20 bg-gradient-to-b from-[#394797fb] to-[#071460] footer">
       <div className="flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0">
         <div className="text-center md:text-left">
-          <h3 className="text-[#fff] text-2xl tracking-wider mb-2 footer-title">Thank You!!</h3>
+          <h3 className="text-[#fff] text-2xl tracking-wider mb-2 font-bold footer-title">
+            Thank You!!
+          </h3>
           <p className="text-[#fff] footer-text">
             Feel free to connect and let's embark on a journey of innovation together.
           </p>

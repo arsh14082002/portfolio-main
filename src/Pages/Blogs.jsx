@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import Loader from '../components/compo/Loader';
+import { Helmet } from 'react-helmet';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,6 +64,11 @@ const Blogs = () => {
 
   return (
     <div className="p-10 sm:p-16 md:p-20 bg-gradient-to-b from-[#2b3466fb] to-[#2b3466]">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Portfolio - Blogs</title>
+        <link rel="canonical" href="https://portoliodot.netlify.app/blogs" />
+      </Helmet>
       <Toaster />
       <div className="w-full">
         <h3 className="text-2xl sm:text-3xl md:text-5xl text-center font-bold text-white uppercase tracking-tight mb-4">

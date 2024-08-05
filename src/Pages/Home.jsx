@@ -7,10 +7,17 @@ import RecentProjects from '../components/sections/RecentProjects';
 import Blogs from './Blogs';
 import BlogSlider from '../components/sections/BlogSlider';
 import LineCompo from '../components/compo/LineCompo';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Portfolio</title>
+        <link rel="canonical" href="https://portoliodot.netlify.app" />
+      </Helmet>
+
       <Header />
       <About />
       <LineCompo />

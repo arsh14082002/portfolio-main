@@ -6,6 +6,8 @@ import Loader from '../components/compo/Loader';
 import Error from '../components/compo/Error';
 import './Styles/singlePage.scss';
 import NoBlogFound from '../components/compo/NoBlogFound';
+import { Helmet } from 'react-helmet';
+import LineCompo from '../components/compo/LineCompo';
 
 const GetSingleBlogPage = () => {
   const { postId } = useParams();
@@ -56,15 +58,20 @@ const GetSingleBlogPage = () => {
 
   return (
     <div className="single_post_page">
+      <Helmet>
+        <title>{post.title}</title>
+        <link rel="canonical" href={`https://portoliodot.netlify.app/blogs/${post.title}`} />
+      </Helmet>
+
       {post ? (
-        <div className="p-4 rounded-lg shadow-md">
+        <div className="p-4 rounded-lg">
           <h1 className="text-[60px] font-bold mb-4 ">{post.title}</h1>
           <img src={post.banner} alt={post.title} className="w-full h-80 object-cover" />
 
           <div className="single_post_blog">
             <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
           </div>
-          <div>
+          <div className="mt-5">
             {post.tags && post.tags.length > 0 ? (
               post.tags.map((tag, index) => (
                 <span key={index} className="bg-gray-200 text-gray-600 px-2 py-1 rounded-sm mr-2">
@@ -80,20 +87,25 @@ const GetSingleBlogPage = () => {
         <NoBlogFound />
       )}
 
+      <LineCompo />
+
       {relatedPosts.length > 0 && (
-        <div>
-          <h2>Related Posts</h2>
-          <div className="grid grid-cols-4 gap-3">
+        <div className="p-4">
+          <h2 className="text-3xl font-bold">Related Posts</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-3">
             {relatedPosts.map((relatedPost) => (
-              <div key={relatedPost._id} className="related-post-item">
+              <div
+                key={relatedPost._id}
+                className="related-post-item h-full bg-slate-700 p-4 border rounded-lg"
+              >
                 <img
                   src={relatedPost.banner}
                   alt={relatedPost.title}
-                  className="related-post-img"
+                  className="related-post-img h-[150px] w-full object-cover mb-2"
                 />
                 <Link
                   to={`/blogs/${toUrlFriendly(relatedPost.title)}`}
-                  className="related-post-link"
+                  className="related-post-link text-xl font-bold mt-3"
                 >
                   {relatedPost.title}
                 </Link>
